@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # blog_post_path(<id>) -> returns the path for the show action of the blog post with the given id
   # blog_post_url(<id>) -> returns the full URL for the show action of the blog post with the given id
 
+  # edit route so post/:id/edit -> edit action
+  get "blog_posts/:id/edit" => "blog_posts#edit", as: :edit_blog_post
+
   # looking for blog_posts_path because it needs to know where to submit the form -> need route for POST action (handle submit request) -> variable is PLURAL
   post "blog_posts" => "blog_posts#create", as: :blog_posts
  

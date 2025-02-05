@@ -1,41 +1,6 @@
 <h1>Create New Blog Post</h1>
 
-<%# on submit params hash created -> params = {
-  blog_post: {
-    title: "User's input",
-    body: "User's input"
-  }
-} %>
+<%# initial form was removed and placed on a partial file to be used across other views -> locals with partials -> passing variables to the partial in a way similar to React props. ->  partial receives blog_post (without @) as a local variable %>
 
-<%= form_with model: @blog_post do |form| %>
-  <%# error message shown to user if form is not valid %>
-  <% if @blog_post.errors.any? %>
-  <div>
-    <h2><%= pluralize(@blog_post.errors.count, "error") %> prevented this post from being saved:</h2>
-    <ul>
-      <% @blog_post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 
-  <%# form_with like React state -> form is now an object that has methods for creating inputs %>
-    <div>
-    <%# This input is for @blog_post.title -> input name is blog_post[title] %>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </div>
-
-    <div>
-    <%# This input is for @blog_post.body -> input name is blog_post[body] %>
-        <%= form.label :body %>
-        <%= form.text_area :body%>
-    </div>
-
-    <%# can add attributes to customize html tags -> form.submit "Publish Post", 
-    class: "submit-button",
-    id: "post-submit",
-    data: { confirm: "Publish to Blog" }  %>
-    <%= form.submit %>
-    <% end %>
+<%= render partial: "form", locals: { blog_post: @blog_post } %>

@@ -54,6 +54,12 @@ class BlogPostsController < ApplicationController
       # .save writes to database
     end
 
+    # edit action method
+    def edit
+      # use find method to get the blog post to edit
+      @blog_post = BlogPost.find(params[:id])
+    end
+
     private
     # Define which parameters allowed -> like validating form data and sending only  allowed fields to the database
     def blog_post_params
