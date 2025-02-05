@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   # can define request types for routes
   # get, post, put, patch, delete
   #  => syntax same as to:
-  get "blog_posts/:id" => "blog_posts#show"
+  # can give rout a variable name to be referenced easily in app (as: :blog_post)
+  get "blog_posts/:id" => "blog_posts#show", as: :blog_post
   # <Route path="/blog_posts/:id" element={<BlogPosts.Show />} />
+  # blog_post_path(<id>) -> returns the path for the show action of the blog post with the given id
+  # blog_post_url(<id>) -> returns the full URL for the show action of the blog post with the given id
 
   # get "blog_posts" => "blog_posts#index"
   # get "blog_posts/:id" => "blog_posts#show"
