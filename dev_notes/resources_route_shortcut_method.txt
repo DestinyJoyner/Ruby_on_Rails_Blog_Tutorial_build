@@ -1,0 +1,16 @@
+Resources Method:
+# RESOURCES METHOD (shortcut -> creates all RESTful routes)
+    # - Way to refactor routes for CRUD actions -> use resources method
+    # - resources method automatically creates all the routes for the CRUD actions
+    #  - Creates path helpers (blog_posts_path, blog_post_path(id), etc.)
+    #  use: 
+    
+    resources :blog_posts
+     creates all the following:
+        get    "blog_posts"          => "blog_posts#index"
+        post   "blog_posts"          => "blog_posts#create"
+        get    "blog_posts/new"      => "blog_posts#new"
+        get    "blog_posts/:id"      => "blog_posts#show"
+        get    "blog_posts/:id/edit" => "blog_posts#edit"
+        patch  "blog_posts/:id"      => "blog_posts#update"
+        delete "blog_posts/:id"      => "blog_posts#destroy"

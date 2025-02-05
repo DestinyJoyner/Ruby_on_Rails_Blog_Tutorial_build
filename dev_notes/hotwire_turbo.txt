@@ -1,4 +1,4 @@
-Hotwire with TurboJS
+Hotwire with TurboJS -> javascript folder -> applications.js
     - Rails' approach to making web applications feel more dynamic without writing much JavaScript
     - focus on html - first and not js-first like react 
     - updates pages w/o full reloads, handles confirmations, manages form submissions
