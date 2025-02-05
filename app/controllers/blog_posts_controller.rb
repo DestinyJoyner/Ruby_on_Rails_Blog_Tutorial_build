@@ -29,8 +29,9 @@ class BlogPostsController < ApplicationController
       # 
       # @blog_post = BlogPost.find(params[:id])
       # use rescue to catch if id doesn't exist and route back to root path
-      rescue ActiveRecord::RecordNotFound
-        redirect_to root_path
+      # can move down to private method because it's used by multiple actions
+      # rescue ActiveRecord::RecordNotFound
+      #   redirect_to root_path
     end
 
     # create new blog post action
@@ -102,6 +103,9 @@ class BlogPostsController < ApplicationController
     # define set_blog_post method 
     def set_blog_post
       @blog_post = BlogPost.find(params[:id])
+      # can move this to private method because it's used by multiple actions
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
     end
     end
 
