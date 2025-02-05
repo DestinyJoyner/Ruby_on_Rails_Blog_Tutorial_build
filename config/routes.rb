@@ -10,5 +10,11 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  # blog_posts tells Rails to look for BlogPostsController due to syntax formatting of BlogPosts -> blog_posts
+  # blog_posts → looks for app/controllers/blog_posts_controller.rb
+  # #index tells Rails to call the index method in that controller -> hence creation of class and creation of index method (action)
+  # controller class must be BlogPostsController (Rails automatically converts snake_case to CamelCase
+  # The index method in the controller automatically looks for a view in app/views/blog_posts/index.html.erb
+  # The index.html.erb file is automatically rendered when the index action is called
+  root "blog_posts#index"
 end
