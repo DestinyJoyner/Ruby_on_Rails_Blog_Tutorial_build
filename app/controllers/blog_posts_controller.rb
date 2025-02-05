@@ -45,6 +45,7 @@ class BlogPostsController < ApplicationController
       @blog_post = BlogPost.new(blog_post_params)
       # conditions for error handling if post was saved successfully or not
       if @blog_post.save
+        #  if it saves redirect to the show page
         redirect_to @blog_post
       else
         #  if it fails render new form again -> status: :unprocessable_entity is a Rails convention for a failed save

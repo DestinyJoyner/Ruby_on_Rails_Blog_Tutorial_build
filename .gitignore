@@ -34,5 +34,5 @@
 /config/master.key
 
 # Ignore development notes folder
-/dev_notes/*
-!/dev_notes/.keep
+# /dev_notes/*
+# !/dev_notes/.keep

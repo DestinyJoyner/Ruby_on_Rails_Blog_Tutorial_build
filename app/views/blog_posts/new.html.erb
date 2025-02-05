@@ -8,6 +8,18 @@
 } %>
 
 <%= form_with model: @blog_post do |form| %>
+  <%# error message shown to user if form is not valid %>
+  <% if @blog_post.errors.any? %>
+  <div>
+    <h2><%= pluralize(@blog_post.errors.count, "error") %> prevented this post from being saved:</h2>
+    <ul>
+      <% @blog_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <%# form_with like React state -> form is now an object that has methods for creating inputs %>
     <div>
     <%# This input is for @blog_post.title -> input name is blog_post[title] %>
