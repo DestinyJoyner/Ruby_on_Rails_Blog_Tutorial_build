@@ -1,3 +1,5 @@
 <h1>Edit Blog Post</h1>
 
+<%# rails automatically -> Detects if model is new or existing by checking id -> if id is present, it's an edit action -> if id is not present, it's a new action -> like react conditional to render form prefilled (edit action) or empty (create new action)%>
+
 <%= render partial: "form", locals: { blog_post: @blog_post } %>

@@ -60,6 +60,20 @@ class BlogPostsController < ApplicationController
       @blog_post = BlogPost.find(params[:id])
     end
 
+    # update/ patch action method
+    def update
+      # find the blog post to update
+      @blog_post = BlogPost.find(params[:id])
+      # check if update method (updates and saves to database) can be performed on the blog post
+      if @blog_post.update(blog_post_params)
+        # if successful redirect to the show page
+        redirect_to @blog_post
+      else
+        # if not successful render the edit page again
+        render :edit, status: :unprocessable_entity
+      end
+    end
+
     private
     # Define which parameters allowed -> like validating form data and sending only  allowed fields to the database
     def blog_post_params
