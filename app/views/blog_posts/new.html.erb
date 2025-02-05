@@ -1,0 +1,29 @@
+<h1>Create New Blog Post</h1>
+
+<%# on submit params hash created -> params = {
+  blog_post: {
+    title: "User's input",
+    body: "User's input"
+  }
+} %>
+
+<%= form_with model: @blog_post do |form| %>
+  <%# form_with like React state -> form is now an object that has methods for creating inputs %>
+    <div>
+    <%# This input is for @blog_post.title -> input name is blog_post[title] %>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+
+    <div>
+    <%# This input is for @blog_post.body -> input name is blog_post[body] %>
+        <%= form.label :body %>
+        <%= form.text_area :body%>
+    </div>
+
+    <%# can add attributes to customize html tags -> form.submit "Publish Post", 
+    class: "submit-button",
+    id: "post-submit",
+    data: { confirm: "Publish to Blog" }  %>
+    <%= form.submit %>
+    <% end %>

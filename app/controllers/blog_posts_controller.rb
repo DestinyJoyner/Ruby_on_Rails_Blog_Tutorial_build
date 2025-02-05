@@ -26,4 +26,39 @@ class BlogPostsController < ApplicationController
       rescue ActiveRecord::RecordNotFound
         redirect_to root_path
     end
+
+    # create new blog post action
+    def new
+      # . new method creates a new instance of the BlogPost model used to create a new blog post ->  .new method is specifically for creating new Active Record objects that can interact with the database - it's part of Rails' ORM (Object-Relational Mapping) system
+      #  # Like useState({ title: '', body: '' }) in React
+      @blog_post = BlogPost.new
     end
+
+    # define create action -> post request
+    def create
+      # .create method creates a new record in the database and saves all in one step
+      # .new and then .save attempts to save to database allows for error handling and any extra steps in between 
+      # the second .new is # Like setState with form data -> gets all form data at once on submit (not like React where updates on each keystroke)
+      # @blog_post = BlogPost.new(params[:blog_post])
+      # becasue of Rails Strong Params -> need to (whitelist) pre approve the params that are allowed to be passed to the create action -> anything not on the list is automatically denied access
+      #  blog_post_params is a private method that returns the params that are allowed to be passed to the create action -> below
+      @blog_post = BlogPost.new(blog_post_params)
+      # conditions for error handling if post was saved successfully or not
+      if @blog_post.save
+        redirect_to @blog_post
+      else
+        #  if it fails render new form again -> status: :unprocessable_entity is a Rails convention for a failed save
+        render :new, status: :unprocessable_entity
+      end
+      # .save writes to database
+    end
+
+    private
+    # Define which parameters allowed -> like validating form data and sending only  allowed fields to the database
+    def blog_post_params
+      params.require(:blog_post).permit(:title, :body)
+    end
+    end
+
+  
+    

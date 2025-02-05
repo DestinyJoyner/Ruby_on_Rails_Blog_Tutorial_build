@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   # ROUTE DEFINITIONS
   # can define request types for routes
+  # route order matters prevent endpoints from being read as parameter
+   # create a new blog post action
+   get "blog_posts/new" => "blog_posts#new", as: :new_blog_post
   # get, post, put, patch, delete
   #  => syntax same as to:
   # can give rout a variable name to be referenced easily in app (as: :blog_post)
@@ -18,6 +21,11 @@ Rails.application.routes.draw do
   # <Route path="/blog_posts/:id" element={<BlogPosts.Show />} />
   # blog_post_path(<id>) -> returns the path for the show action of the blog post with the given id
   # blog_post_url(<id>) -> returns the full URL for the show action of the blog post with the given id
+
+  # looking for blog_posts_path because it needs to know where to submit the form -> need route for POST action (handle submit request) -> variable is PLURAL
+  post "blog_posts" => "blog_posts#create", as: :blog_posts
+ 
+
 
   # get "blog_posts" => "blog_posts#index"
   # get "blog_posts/:id" => "blog_posts#show"
