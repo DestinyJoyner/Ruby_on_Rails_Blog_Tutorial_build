@@ -6,6 +6,11 @@
 # the index action will render the index view (app/views/blog_posts/index.html.erb) -> html structure on this file
 
 class BlogPostsController < ApplicationController
+  # use before_action to run a method before any other actions are called
+  # can do the opposite of this by using except: [:index, :new, :create]
+  before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
+  # define set_blog_post method to find the blog post by id that is used by all methods in array above to prevent code repetition
+
     def index
       # instance variable -> @blog_posts
       # Instance variables (@) are automatically shared between the controller and its views
@@ -21,7 +26,8 @@ class BlogPostsController < ApplicationController
     def show
       # any parameters in the URL are automatically available in your controller through the params hash -> in React const { id } = useParams()
       # .find(<id>) -> returns the single record with the matching id
-      @blog_post = BlogPost.find(params[:id])
+      # 
+      # @blog_post = BlogPost.find(params[:id])
       # use rescue to catch if id doesn't exist and route back to root path
       rescue ActiveRecord::RecordNotFound
         redirect_to root_path
@@ -57,13 +63,15 @@ class BlogPostsController < ApplicationController
     # edit action method
     def edit
       # use find method to get the blog post to edit
-      @blog_post = BlogPost.find(params[:id])
+      # can get rid if this line because of before_action
+      # @blog_post = BlogPost.find(params[:id])
     end
 
     # update/ patch action method
     def update
       # find the blog post to update
-      @blog_post = BlogPost.find(params[:id])
+      # can get rid if this line because of before_action
+      # @blog_post = BlogPost.find(params[:id])
       # check if update method (updates and saves to database) can be performed on the blog post
       if @blog_post.update(blog_post_params)
         # if successful redirect to the show page
@@ -77,7 +85,8 @@ class BlogPostsController < ApplicationController
     # delete action method
     def destroy
       # find the blog post to delete
-      @blog_post = BlogPost.find(params[:id])
+      # can get rid if this line because of before_action
+      # @blog_post = BlogPost.find(params[:id])
       # delete the blog post -> .destroy method
       @blog_post.destroy
       # redirect to the index page -> b/c blog post doesn't exist anymore
@@ -88,6 +97,11 @@ class BlogPostsController < ApplicationController
     # Define which parameters allowed -> like validating form data and sending only  allowed fields to the database
     def blog_post_params
       params.require(:blog_post).permit(:title, :body)
+    end
+
+    # define set_blog_post method 
+    def set_blog_post
+      @blog_post = BlogPost.find(params[:id])
     end
     end
 

@@ -37,19 +37,7 @@ Rails.application.routes.draw do
   # looking for blog_posts_path because it needs to know where to submit the form -> need route for POST action (handle submit request) -> variable is PLURAL
   post "blog_posts" => "blog_posts#create", as: :blog_posts
  
-  # RESOURCES METHOD (shortcut -> creates all RESTful routes)
-    # - Way to refactor routes for CRUD actions -> use resources method
-    # - resources method automatically creates all the routes for the CRUD actions
-    #  - Creates path helpers (blog_posts_path, blog_post_path(id), etc.)
-    #  use: resources :blog_posts
-    
-
-
-  # get "blog_posts" => "blog_posts#index"
-  # get "blog_posts/:id" => "blog_posts#show"
-  # post "blog_posts" => "blog_posts#create"
-  # put "blog_posts/:id" => "blog_posts#update"
-  # delete "blog_posts/:id" => "blog_posts#destroy"
+  
 
 
   # Defines the root path route ("/")
