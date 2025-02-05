@@ -9,7 +9,22 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
+  # ROUTE DEFINITIONS
+  # can define request types for routes
+  # get, post, put, patch, delete
+  #  => syntax same as to:
+  get "blog_posts/:id" => "blog_posts#show"
+  # <Route path="/blog_posts/:id" element={<BlogPosts.Show />} />
+
+  # get "blog_posts" => "blog_posts#index"
+  # get "blog_posts/:id" => "blog_posts#show"
+  # post "blog_posts" => "blog_posts#create"
+  # put "blog_posts/:id" => "blog_posts#update"
+  # delete "blog_posts/:id" => "blog_posts#destroy"
+
+
   # Defines the root path route ("/")
+  # Root route can be anywhere in the file, but conventionally at the bottom
   # blog_posts tells Rails to look for BlogPostsController due to syntax formatting of BlogPosts -> blog_posts
   # blog_posts → looks for app/controllers/blog_posts_controller.rb
   # #index tells Rails to call the index method in that controller -> hence creation of class and creation of index method (action)

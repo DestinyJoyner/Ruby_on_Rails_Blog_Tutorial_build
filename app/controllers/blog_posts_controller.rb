@@ -16,4 +16,14 @@ class BlogPostsController < ApplicationController
       # .all is an Active Record method that translates to SELECT * 
       @blog_posts = BlogPost.all
     end
+
+    # create the show action
+    def show
+      # any parameters in the URL are automatically available in your controller through the params hash -> in React const { id } = useParams()
+      # .find(<id>) -> returns the single record with the matching id
+      @blog_post = BlogPost.find(params[:id])
+      # use rescue to catch if id doesn't exist and route back to root path
+      rescue ActiveRecord::RecordNotFound
+        redirect_to root_path
+    end
     end
