@@ -1,0 +1,7 @@
+- set up model -> rails generate model <tableName> column_name: <data_type>...
+- rails db:migrate
+- to find sqlite3 file -> exact location in your config/database.yml (usually in storage folder)
+- rails console -> to add data to table ->
+    - create method: BlogPost.create(title: "Test Post", body: "This is a test")
+    - table_name.find(<id>) -> can save to variable then call :
+        - .update(<column>: <new_value>)

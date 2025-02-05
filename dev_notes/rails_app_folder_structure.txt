@@ -1,0 +1,20 @@
+- rails server -> starts server
+- rails new <name of project>
+- gemfile list all dependencies -> bundles
+- rakefile -> configuration file that loads and defines tasks that can be run from the command line (manages db operations, loads built in rails tasks, defines maintenance tasks) 
+- channel is folder for action cable websockets (open connection btw computer and webserver -> livechat, live updates, streaming data)
+- controllers folder -> handles website requests
+- helpers folder - contains modules that add helper methods for your views (format data for display) 
+- javascript -> hotwire, turbo, write own JS
+- jobs - handle tasks that should be performed asynchronously (in the background) rather than during a web request (emails, uploads, calculations)
+- mailers - for sending emails
+- models - contains your application's business logic and data models (relationship b/w data, business rules, connect to db tables)
+- views - defined html json responses
+- bin folder -> contains executable scripts (binaries) that are essential for running and managing your Rails application
+- config -> configuration settings for your Rails application (set up db connections, define env settings, store API keys/ secrets, set up routes)
+    - application.rb -> main configuration file for your Rails app.(setup basic app settings, configure framework defaults, define global configs, setup autoloading paths)
+    - environment folder -> development (debugging and convenience) env, test (Optimized for running tests quickly) env, production(Optimized for performance and security) env, 
+- storage -> Active Storage (Rails' file handling system) to store files during development and test environments (attachments, uploaded files, images) -> temporary files
+- development.log -> keeps track of all your requests (ass seen in terminal)
+- public folder holds favicon, and default customizable error pages for different codes
+- vendor -> meant for third-party code that isn't managed by Bundler (your gem manager). (Custom or modified JavaScript libraries, Third-party CSS frameworks not available as gems)

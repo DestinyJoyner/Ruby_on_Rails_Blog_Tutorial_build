@@ -1,0 +1,10 @@
+How all file recognize eachother-> connected -> no need for imports -> everything in  app/ is globally accesssible -> naming conventions is KEY!
+
+
+    # Auto-Loading: Rails automatically loads all files from certain directories
+
+    # autoloading system called Zeitwerk that: Automatically maps file names to class names -> No need for require, import, or export statements
+
+    # app/ directory is automatically available throughout your application
+
+       This is:  Rails' "Convention over Configuration" principle in action - by following these naming conventions, Rails automatically knows how to connect all these components without requiring explicit configuration.

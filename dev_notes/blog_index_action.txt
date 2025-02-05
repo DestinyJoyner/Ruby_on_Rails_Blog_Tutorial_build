@@ -1,0 +1,16 @@
+- define root route on config/route.rb
+    -  # Defines the root path route ("/")
+            root "blog_posts#index"
+- need to create controller and define index action in that folder
+    - controllers/blog_posts_controller.rb
+
+- Flow from config/route.rb
+    # Defines the root path route ("/")
+    # blog_posts tells Rails to look for BlogPostsController due to syntax formatting of BlogPosts -> blog_posts
+    # blog_posts → looks for app/controllers/blog_posts_controller.rb
+    # #index tells Rails to call the index method in that controller -> hence creation of class and creation of index method (action)
+    # controller class must be BlogPostsController (Rails automatically converts snake_case to CamelCase)
+    # The index method in the controller automatically looks for a view in app/views/blog_posts/index.html.erb
+    # The index.html.erb file is automatically rendered when the index action is called
+
+    - This is:  Rails' "Convention over Configuration" principle in action - by following these naming conventions, Rails automatically knows how to connect all these components without requiring explicit configuration.

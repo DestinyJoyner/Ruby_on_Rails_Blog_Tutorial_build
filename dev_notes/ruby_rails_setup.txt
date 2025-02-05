@@ -1,0 +1,21 @@
+# 1. Set Ruby 3.1.4 as the local version for your project directory
+# This creates a .ruby-version file in your project
+rbenv local 3.1.4
+
+# 2. Verify that the correct Ruby version is active
+# Should output: ruby 3.1.4pXXX (where XXX is the patch level)
+ruby -v
+
+# 3. Install the specific Rails version you need
+# This makes Rails 7.0.4.3 available to your Ruby environment
+gem install rails -v 7.0.4.3
+
+# 4. Install all project dependencies from your Gemfile
+# This ensures all gems are installed with versions compatible with Ruby 3.1.4
+bundle install
+
+# Optional but recommended - use bundle exec to run Rails commands
+# This ensures you're using your project's specific gem versions
+bundle exec rails s  # starts the server
+bundle exec rails c  # starts the console
+bundle exec rails g  # for generators

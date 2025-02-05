@@ -1,0 +1,16 @@
+MVC PATTERN - Model View Controller -> organization pattern for code in web applications
+Model:
+- database layer -> how query, validate, process and add info into database 
+- Represents the data and business logic of the application
+View:
+- Represents the UI of the application (html, json, xml)
+- Displays data to the user 
+Controller:
+- Manages the interaction between the model and the view
+- Handles user input and updates the model and view accordingly
+- handles request and how things are processed
+- ex: make a portion of app admin only -> test auth and redirect accordingly
+
+Ex.: /sign-up route (path) -> which controller to send request to -> can make request to user model -> to render form for user -> user submits and data is processed
+    - get, post, request etc...
+

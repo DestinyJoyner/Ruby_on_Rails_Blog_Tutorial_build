@@ -1,0 +1,11 @@
+- .erb - embedded ruby reads html and ruby code
+
+- <% %> - "Silent" ERB tags
+    - Conditional logic 
+    - Executes Ruby code but doesn't display anything
+        - like in JSX: {/* JavaScript logic that doesn't render */}
+
+- <%= %> - "Loud" ERB tags
+    - Displaying values with 
+    - Executes Ruby code AND displays the result
+    - linke in JSX : {someArray.map(item => <div>{item}</div>)}
