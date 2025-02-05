@@ -74,6 +74,16 @@ class BlogPostsController < ApplicationController
       end
     end
 
+    # delete action method
+    def destroy
+      # find the blog post to delete
+      @blog_post = BlogPost.find(params[:id])
+      # delete the blog post -> .destroy method
+      @blog_post.destroy
+      # redirect to the index page -> b/c blog post doesn't exist anymore
+      redirect_to root_path
+    end
+
     private
     # Define which parameters allowed -> like validating form data and sending only  allowed fields to the database
     def blog_post_params

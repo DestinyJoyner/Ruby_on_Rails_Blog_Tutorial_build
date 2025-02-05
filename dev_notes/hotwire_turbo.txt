@@ -1,0 +1,9 @@
+Hotwire with TurboJS
+    - Rails' approach to making web applications feel more dynamic without writing much JavaScript
+    - focus on html - first and not js-first like react 
+    - updates pages w/o full reloads, handles confirmations, manages form submissions
+    - features:
+        - Turbo Drive: Page navigation without full reloads
+        - Turbo Frames: Update specific parts of page
+        - Turbo Streams: Real-time updates
+        - Built-in confirmations and progress bars

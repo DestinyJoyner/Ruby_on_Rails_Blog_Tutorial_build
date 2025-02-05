@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   # then need to add update action in controller -> #update
   patch "blog_posts/:id" => "blog_posts#update"
 
+  # delete route for destroy action -> no variable again b/c already defined in show route that has same endpoint
+  # then need to add destroy action in controller -> #destroy
+  delete "blog_posts/:id" => "blog_posts#destroy"
+
   # looking for blog_posts_path because it needs to know where to submit the form -> need route for POST action (handle submit request) -> variable is PLURAL
   post "blog_posts" => "blog_posts#create", as: :blog_posts
  

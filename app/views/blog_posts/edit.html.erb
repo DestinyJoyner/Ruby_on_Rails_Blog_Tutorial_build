@@ -3,3 +3,8 @@
 <%# rails automatically -> Detects if model is new or existing by checking id -> if id is present, it's an edit action -> if id is not present, it's a new action -> like react conditional to render form prefilled (edit action) or empty (create new action)%>
 
 <%= render partial: "form", locals: { blog_post: @blog_post } %>
+
+<%# add delete button to edit view -> button_to works like link_to -> but for delete requests -> method: :delete -> rails automatically recognizes it as a delete request (otherwise looks and recognizes path preset as patch request) %>
+
+<%#  use built in Hotwire library with turbo JS (like React window object) -> to add confirmation on delete%>
+<%= button_to "Delete", @blog_post, method: :delete, data: { turbo_confirm: "Delete this blog post?" } %>
