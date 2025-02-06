@@ -28,3 +28,10 @@ production:
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   url: <%= ENV['DATABASE_URL'] %>
+
+# Add this section for Action Cable
+cable:
+  production:
+    adapter: postgresql
+    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
