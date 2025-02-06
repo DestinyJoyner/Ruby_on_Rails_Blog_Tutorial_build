@@ -17,9 +17,14 @@ Testing Models (db methods/functionality)
         - rails db:test:prepare
     - Migrate test database
         - rails db:migrate RAILS_ENV=test
+
+    - binding.irb -> add it anywhere in your test to pause execution and inspect variables
    
-
-
+learned:
+How to write a model test
+How to use binding.irb for debugging
+How fixtures work with Devise
+How to validate user creation
 
 Basic Test Types to Create
 
