@@ -24,6 +24,7 @@ class BlogPostsController < ApplicationController
       # autoloading system called Zeitwerk that: Automatically maps file names to class names -> No need for require, import, or export statements
       # app/ directory is automatically available throughout your application
       # .all is an Active Record method that translates to SELECT * 
+      # can change command now to BlogPost.published
       @blog_posts = BlogPost.all
     end
 
@@ -107,6 +108,7 @@ class BlogPostsController < ApplicationController
 
     # define set_blog_post method 
     def set_blog_post
+      # can add published.find if want to trigger scheduled posts
       @blog_post = BlogPost.find(params[:id])
       # can move this to private method because it's used by multiple actions
     rescue ActiveRecord::RecordNotFound

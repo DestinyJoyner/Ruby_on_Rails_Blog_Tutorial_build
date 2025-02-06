@@ -1,0 +1,48 @@
+Testing Models (db methods/functionality)
+    
+    - Prep test environment
+        - rails db:test:prepare
+    - Generate test files
+        - rails generate test:model User
+        - rails generate test:system User
+        - rails generate test:model BlogPost
+        - rails generate test:system BlogPost
+    - Running Tests
+        - Run all tests -> rails test
+        - Run specific test -> rails test <path/filename> (test/models/blog_post_test.rb)
+        - Run test by line number -> rails test test/models/user_test.rb:10
+        - Run Systems tests only -> rails test:system
+        - Run model tests only -> rails test:models
+    - Reset test database
+        - rails db:test:prepare
+    - Migrate test database
+        - rails db:migrate RAILS_ENV=test
+   
+
+
+
+Basic Test Types to Create
+
+1. User Model Tests (test/models/user_test.rb)
+- Test user creation with valid data
+- Test user creation with invalid data
+- Test user authentication
+- Test password validation
+
+2. User System Tests (test/system/users_test.rb)
+- Test user sign up process
+- Test user sign in
+- Test user sign out
+- Test password reset flow
+
+3. BlogPost Model Tests (test/models/blog_post_test.rb)
+- Test post creation with valid data
+- Test post creation without title
+- Test post creation without content
+- Test post status changes
+
+4. BlogPost System Tests (test/system/blog_posts_test.rb)
+- Test creating new blog post
+- Test editing existing post
+- Test deleting post
+- Test viewing post
