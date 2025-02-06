@@ -43,3 +43,7 @@ Bundler version with BUNDLER_VERSION=2.4.10
 Devise encryption with DEVISE_SECRET_KEY
 Database migration in production build command
 
+# Your data will be LOST on each deploy because: -> so have to set up render postgres DB ANYWAYS
+- Render uses ephemeral filesystem
+- Each deploy creates fresh container
+- SQLite file gets wiped out
