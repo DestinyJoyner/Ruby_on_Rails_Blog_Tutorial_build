@@ -36,3 +36,6 @@
 # Ignore development notes folder
 # /dev_notes/*
 # !/dev_notes/.keep
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

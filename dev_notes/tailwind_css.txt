@@ -1,0 +1,41 @@
+Tailwind Css
+    - run bundle add tailwindcss-rails
+    - run rails tailwindcss:install
+    - gem install foreman (runs multiple processes concurrently)
+    - no longer run rails server -> use bin/dev
+        - watch command-> bin/dev
+- stylesheets -> app/assets/ stylesheets
+- can apply class ="prose" for default generic styling on application.html body tag
+
+
+-debugging tailwind for future refrence (go back to 2.0)
+
+# 1. File Structure
+app/
+  assets/
+    stylesheets/
+      application.tailwind.css    # Must be in this location
+
+# 2. File Content (application.tailwind.css)
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+# 3. Configuration (config/tailwind.config.js)
+module.exports = {
+  content: [
+    './app/views/**/*.erb',
+    './app/helpers/**/*.rb',
+    './app/javascript/**/*.js'
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    require('@tailwindcss/typography')
+  ]
+}
+
+# 4. Commands
+rails tailwindcss:build    # Rebuild Tailwind
+bin/dev                    # Start server with Tailwind watcher
