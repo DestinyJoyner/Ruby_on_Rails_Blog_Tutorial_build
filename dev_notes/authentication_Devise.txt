@@ -1,0 +1,33 @@
+Devise is an authentication library (like bcrypt. jwt etc...)
+    - provides features like:
+        - user registration/ logiin
+        - password resets
+        - email confirmation
+        - remember me?
+        - session management
+        - password hashing
+    - terminal commands:
+        - bundle add devise
+        - rails g devise
+        - rails g devise:install
+            - folle numbered steps:
+                - add config.action_mailer.default_url_options = { host: 'localhost', port: 3000 } to end of config/development.rb file
+                - flash messages -> can paste :
+                    - <p class="notice"><%= notice %></p>
+                        <p class="alert"><%= alert %></p>
+                        in views/layout/application.html
+                - can install rails g devise:views -> to customize default login pages etc
+                - back in terminal -> rails g devise User
+                - run rails db:migrate
+        
+    - see Devise routes run : rails routes | grep user
+    /users/sign_up    # GET (registration form) and POST (create account)
+    /users/sign_in    # GET (login form) and POST (login)
+    /users/sign_out  
+
+    -> in views/layouts/ application.html-> can add nav section
+    -> go into user model (model/user.rb) and remove :registerable
+
+    -> can delete last entry in table in rails c : <table>.last.destroy
+
+
