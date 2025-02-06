@@ -11,7 +11,12 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   # define set_blog_post method to find the blog post by id that is used by all methods in array above to prevent code repetition
 
+  # Authentication additions
+  # authenticate user whenever they try to access the edit, update, or destroy actions
+  before_action :authenticate_user!, except: [:index, :show]
+
     def index
+      
       # instance variable -> @blog_posts
       # Instance variables (@) are automatically shared between the controller and its views
       # BlogPost is the model class that interfaces with the blog_posts table from models/blog_post.rb
@@ -107,6 +112,11 @@ class BlogPostsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to root_path
     end
+
+    # devise has method like by default authenticate_user! method
+    # def authenticate_user!
+    #     redirect_to new_user_session_path, alert: "You must be logged in to access this page" unless user_signed_in?
+    #   end
     end
 
   
