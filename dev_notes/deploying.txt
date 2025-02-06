@@ -2,6 +2,7 @@ Deploying to Production
     - push code up to github
     
 - Render Troubleshooting issues:
+-build command : bundle install && RAILS_ENV=production bundle exec rake db:migrate && RAILS_ENV=production bundle exec rake assets:precompile && bundle exec rake assets:clean
 
 Rails Deployment to Render - Setup Guide
 Environment Variables in Render Dashboard
@@ -35,4 +36,10 @@ Devise encryption: Set DEVISE_SECRET_KEY
 Generate Required Values
 RAILS_MASTER_KEY: Found in config/master.key
 DEVISE_SECRET_KEY: Generate with 'rails secret' command
+
+issues fixed:
+Ruby version mismatch with RBENV_VERSION=3.2.2
+Bundler version with BUNDLER_VERSION=2.4.10
+Devise encryption with DEVISE_SECRET_KEY
+Database migration in production build command
 
