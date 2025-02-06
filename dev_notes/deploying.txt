@@ -1,3 +1,38 @@
 Deploying to Production
     - push code up to github
-     
+    
+- Render Troubleshooting issues:
+
+Rails Deployment to Render - Setup Guide
+Environment Variables in Render Dashboard
+RAILS_MASTER_KEY=[from config/master.key]
+RBENV_VERSION=3.2.2
+BUNDLER_VERSION=2.4.10
+DEVISE_SECRET_KEY=[from running 'rails secret' locally]
+Required Files/Settings
+Gemfile
+ruby "3.2.2" # Specify Ruby version
+config/environments/production.rb
+config.public_file_server.enabled = true
+config.assets.compile = true
+config.assets.digest = true
+config/initializers/devise.rb
+config.secret_key = ENV['DEVISE_SECRET_KEY']
+Build Command in Render
+bundle install && RAILS_ENV=production bundle exec rake assets:precompile && bundle exec rake assets:clean
+Deployment Steps
+Set Ruby version in Gemfile
+Add production environment configs
+Add Devise secret key config
+Set all environment variables in Render
+Set build command in Render
+Deploy!
+Common Issues & Solutions
+Ruby version mismatch: Set RBENV_VERSION
+Bundler issues: Use version 2.4.10 that's available in Render
+Asset compilation: Ensure production configs are set
+Devise encryption: Set DEVISE_SECRET_KEY
+Generate Required Values
+RAILS_MASTER_KEY: Found in config/master.key
+DEVISE_SECRET_KEY: Generate with 'rails secret' command
+
