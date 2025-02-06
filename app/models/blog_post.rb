@@ -1,9 +1,13 @@
 class BlogPost < ApplicationRecord
+  # for Action Text
+  has_rich_text :content
+  # can move body column info to the content column and get rid of body column
+
     # .validates is a method that validates the presence of the title and body attributes
     # validation happens at the model level (runs ANYWHERE a BlogPost is saved), runs automatically before saving to database available throught entire application
     #  write validations once works everywhere -> Convention over Configuration
     validates :title, presence: true
-    validates :body, presence: true
+    # validates :body, presence: true
 
     # create a scope for published posts -> pre-defined database queries:
             # BlogPost.draft           # Get all drafts

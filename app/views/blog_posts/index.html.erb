@@ -9,6 +9,6 @@
         <%# This is like {post.title} in JSX %>
         <h2><%= link_to blog_post.title, blog_post_path(blog_post.id) %></h2>
         <%# also shortened to link_to blog_post.title, blog_post %>
-        <p><%= blog_post.body %></p>
+        <p><%= blog_post.content %></p>
     </div>
 <% end %>

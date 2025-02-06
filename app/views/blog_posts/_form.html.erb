@@ -29,8 +29,9 @@
 
     <div>
     <%# This input is for blog_post.body -> input name is blog_post[body] %>
-        <%= form.label :body %>
-        <%= form.text_area :body%>
+    <%# will switch textarea to rich text editor using Action Text -> command: rails action_text:install and property to content column %>
+        <%= form.label :content %>
+        <%= form.rich_text_area :content%>
     </div>
 
     <%# can add attributes to customize html tags -> form.submit "Publish Post", 

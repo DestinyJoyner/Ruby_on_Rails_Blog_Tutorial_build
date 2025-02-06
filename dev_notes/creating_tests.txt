@@ -23,8 +23,11 @@ Testing Models (db methods/functionality)
 learned:
 How to write a model test
 How to use binding.irb for debugging
-How fixtures work with Devise
+How fixtures work with Devise - users.yml file -> set up proper test user object (fixtures) with email and devise encrypted passwords
+- use fixtures on test files :<fixture variable>
 How to validate user creation
+Test keywords: assert, refute, binding.irb
+
 
 Basic Test Types to Create
 

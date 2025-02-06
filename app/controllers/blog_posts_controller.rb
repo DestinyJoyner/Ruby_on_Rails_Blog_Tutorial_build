@@ -103,7 +103,7 @@ class BlogPostsController < ApplicationController
     private
     # Define which parameters allowed -> like validating form data and sending only  allowed fields to the database
     def blog_post_params
-      params.require(:blog_post).permit(:title, :body)
+      params.require(:blog_post).permit(:title, :content)
     end
 
     # define set_blog_post method 
