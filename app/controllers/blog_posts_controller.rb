@@ -25,7 +25,9 @@ class BlogPostsController < ApplicationController
       # app/ directory is automatically available throughout your application
       # .all is an Active Record method that translates to SELECT * 
       # can change command now to BlogPost.published
-      @blog_posts = BlogPost.all
+      # @blog_posts = BlogPost.all
+      # add pagination with pagy
+      @pagy, @blog_posts = pagy(BlogPost.all)
     end
 
     # create the show action

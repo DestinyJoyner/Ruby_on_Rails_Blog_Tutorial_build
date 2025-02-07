@@ -10,3 +10,11 @@
 # run seed file -> rails db:seed
 user =User.where(email: "test@test.com").find_or_initialize_by(email: "test@test.com")
 user.update!(password: "password", password_confirmation: "password")
+
+# need loop to create about 100 blog posts
+# 100.times do |i|
+#     BlogPost.create!(
+#         title: "Blog Post #{i}",
+#         content: "This is the content of blog post #{i}"
+#     )
+# end

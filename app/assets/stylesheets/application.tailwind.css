@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Pagy nav styles using regular CSS */
+.pagy {
+  display: flex;
+  gap: 0.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: rgb(107, 114, 128);
+}
+
+.pagy a:not(.gap) {
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: rgb(229, 231, 235);
+}
+
+.pagy a:not(.gap):hover {
+  background-color: rgb(209, 213, 219);
+}
+
+.pagy a:not([href]) {
+  color: rgb(209, 213, 219);
+  background-color: rgb(243, 244, 246);
+  cursor: default;
+}
+
+.pagy a.current {
+  color: white;
+  background-color: rgb(156, 163, 175);
+}
+
+.pagy label {
+  display: inline-block;
+  white-space: nowrap;
+  background-color: rgb(229, 231, 235);
+  border-radius: 0.5rem;
+  padding: 0.125rem 0.75rem;
+}
+
+.pagy label input {
+  background-color: rgb(243, 244, 246);
+  border: none;
+  border-radius: 0.375rem;
+}

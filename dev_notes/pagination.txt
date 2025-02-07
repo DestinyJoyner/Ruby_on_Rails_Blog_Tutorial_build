@@ -1,0 +1,26 @@
+Pagination
+     - gem called 'pagy' : bundle add pagy
+     - application_controller.rb -> include Pagy::Backend
+     - application_helper.rb ->  include Pagy::Frontend
+
+Debugging Pagy Tailwind Styling:
+
+Pagy navigation wasn't showing any styling
+Started with Pagy's documentation example using @apply directives
+Testing File Loading
+Added a test style (background-color: red !important)
+Confirmed CSS file was being read when red background appeared
+
+Found that @apply directive was showing as "unknown rule"
+This indicated a Tailwind processing issue
+Understanding the Setup
+Realized we were using tailwindcss-rails gem
+This gem has a different setup than standalone Tailwind
+
+Switched from Tailwind's @apply syntax to regular CSS
+Kept the same visual styling but used standard CSS properties
+Used direct CSS values that match Tailwind's design system
+Verification
+Ran rails tailwindcss:build
+Confirmed styles were now applying correctly
+Navigation showed proper styling

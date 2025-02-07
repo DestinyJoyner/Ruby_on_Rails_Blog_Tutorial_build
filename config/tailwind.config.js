@@ -3,9 +3,10 @@ module.exports = {
     "./app/views/**/*.erb",
     "./app/helpers/**/*.rb",
     "./app/javascript/**/*.js",
+    "./app/assets/stylesheets/**/*.css",
   ],
   theme: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [],
 };

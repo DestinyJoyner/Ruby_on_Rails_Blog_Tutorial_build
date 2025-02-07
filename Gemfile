@@ -75,3 +75,4 @@ gem "tailwindcss-rails", "~> 2.0"
 ruby file: ".ruby-version"
 ruby "3.2.2"
 gem "aws-sdk-s3", require: false
+gem "pagy", "~> 9.3"
