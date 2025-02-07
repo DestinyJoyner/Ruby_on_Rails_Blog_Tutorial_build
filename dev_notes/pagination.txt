@@ -24,3 +24,5 @@ Verification
 Ran rails tailwindcss:build
 Confirmed styles were now applying correctly
 Navigation showed proper styling
+
+-Learned: When using tailwindcss-rails, stick to regular CSS for custom components not @apply
