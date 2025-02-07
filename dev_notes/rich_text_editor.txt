@@ -1,0 +1,23 @@
+Rich Text Editor (Trix) Setup Notes and Render Deployment FIx
+
+1. Asset Precompilation
+   - Add to config/initializers/assets.rb:
+   Rails.application.config.assets.precompile += %w( trix.css trix.js )
+
+2. Required Stylesheet Tags (application.html.erb)
+   - <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+   - <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
+
+3. Production Environment Settings (config/environments/production.rb)
+   - config.assets.compile = true
+   - config.assets.version = '1.0'
+   - config.public_file_server.enabled = true
+
+Key Points:
+- Ensures Trix editor assets are precompiled
+- Loads required stylesheets properly
+- Configures production to serve assets correctly
+- Fixes styling issues in production environment
+
+Note: These settings are particularly important for Render deployment to ensure 
+the rich text editor displays properly with full styling instead of basic default appearance.
