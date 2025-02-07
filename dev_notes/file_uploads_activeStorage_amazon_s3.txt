@@ -1,0 +1,17 @@
+File Uploads with Active Storage and Amazon S3
+    - ref -> https://guides.rubyonrails.org/active_storage_overview.html#s3-service-amazon-s3-and-s3-compatible-apis
+    - storage.yml file (amazon:) add public:true
+    - create aws account
+        - s3 services create bucket:
+            - enable acl, make public (select bottom 3)
+        - iam services -> create policy
+            - allow only s3 options
+            - Access Level:
+                - list : ListBucket
+                - read : GetObject
+                - write: PutObject & DeleteObject
+                - permissions : PutObjectAcl
+    - on config/environment/development -> config.active_storage.service = :amazon
+    - on storage.yml add bucket name
+    - add aws s3 gem to gemfile
+    - brew install vips -> commands to resize images
