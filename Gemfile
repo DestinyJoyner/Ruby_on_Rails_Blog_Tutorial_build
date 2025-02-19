@@ -70,7 +70,7 @@ end
 
 gem "devise", "~> 4.9"
 
-gem "tailwindcss-rails", "~> 2.0"
+gem "tailwindcss-rails", "~> 4.1"
 
 ruby file: ".ruby-version"
 ruby "3.2.2"
